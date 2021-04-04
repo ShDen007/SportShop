@@ -1,28 +1,24 @@
 package org.itstep.SportShop.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import org.itstep.SportShop.entity.Product;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+
+@Data
+@AllArgsConstructor
+@EnableAutoConfiguration
 
 public class ProductInfo {
     private String code;
     private String name;
     private double price;
 
-    public ProductInfo() {
-    }
-
     public ProductInfo(Product product) {
         this.code = product.getCode();
         this.name = product.getName();
         this.price = product.getPrice();
     }
-
-    // Using in JPA/Hibernate query
-    public ProductInfo(String code, String name, double price) {
-        this.code = code;
-        this.name = name;
-        this.price = price;
-    }
-
     public String getCode() {
         return code;
     }

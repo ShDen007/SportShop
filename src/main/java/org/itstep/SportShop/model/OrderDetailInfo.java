@@ -1,5 +1,14 @@
 package org.itstep.SportShop.model;
 
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+
+@Data
+@AllArgsConstructor
+@EnableAutoConfiguration
+
 public class OrderDetailInfo {
     private String id;
 
@@ -10,20 +19,6 @@ public class OrderDetailInfo {
     private double price;
     private double amount;
 
-    public OrderDetailInfo() {
-
-    }
-
-    // Using for JPA/Hibernate Query.
-    public OrderDetailInfo(String id, String productCode,
-                           String productName, int quanity, double price, double amount) {
-        this.id = id;
-        this.productCode = productCode;
-        this.productName = productName;
-        this.quanity = quanity;
-        this.price = price;
-        this.amount = amount;
-    }
 
     public String getId() {
         return id;

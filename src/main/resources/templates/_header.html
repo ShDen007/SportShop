@@ -1,19 +1,19 @@
 <div class="header-container"
      xmlns:th="http://www.thymeleaf.org"
      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
-
-    <div class="site-name">Online SportShop</div>
+    <meta charset="UTF-8">
+    <div class="site-name">Онлайн магазин Спортивного одягу</div>
 
     <div class="header-bar">
         <th:block sec:authorize="isAuthenticated()">
             Hello
             <a th:href="@{/admin/accountInfo}" th:utext="${#request.userPrincipal.name}">..</a>
             &nbsp;|&nbsp;
-            <a th:href="@{/admin/logout}">Logout</a>
+            <a th:href="@{/admin/logout}">Вихід</a>
         </th:block>
 
         <th:block sec:authorize="!isAuthenticated()">
-            <a th:href="@{/admin/login}">Login</a>
+            <a th:href="@{/admin/login}">Авторизація</a>
         </th:block>
     </div>
 

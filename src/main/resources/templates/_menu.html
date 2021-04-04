@@ -1,25 +1,25 @@
 <div class="menu-container"
      xmlns:th="http://www.thymeleaf.org"
      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" >
-    <a th:href="@{/}">Home</a>
+    <a th:href="@{/}">Домашня сторінка</a>
     |
     <a th:href="@{/productList}">
-        Product List
+        Каталог продуктів
     </a>
     |
     <a th:href="@{/shoppingCart}">
-        My Cart
+        Моя корзина
     </a>
     |
     <th:block sec:authorize="hasAnyRole('ROLE_MANAGER','ROLE_EMPLOYEE')">
         <a th:href="@{/admin/orderList}">
-            Order List
+            Список покупок
         </a>
         |
     </th:block>
     <th:block sec:authorize="hasRole('ROLE_MANAGER')">
         <a th:href="@{/admin/product}">
-            Create Product
+            Створити продукт
         </a>
         |
     </th:block>

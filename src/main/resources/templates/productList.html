@@ -10,23 +10,23 @@
 <th:block th:include="/_header"></th:block>
 <th:block th:include="/_menu"></th:block>
 
-<div class="page-title">Product List</div>
+<div class="page-title">Перелік продуктів</div>
 
 <div class="product-preview-container" th:each="prodInfo : ${paginationProducts.list}">
     <ul>
         <li><img class="product-image"
                  th:src="@{|/productImage?code=${prodInfo.code}|}" /></li>
-        <li>Code: <span th:utext="${prodInfo.code}"></span></li>
-        <li>Name: <span th:utext="${prodInfo.name}"></span></li>
-        <li>Price: <span th:utext="${#numbers.formatDecimal(prodInfo.price,3,2,'COMMA')}"></span></li>
+        <li>Код продукту: <span th:utext="${prodInfo.code}"></span></li>
+        <li>Назва: <span th:utext="${prodInfo.name}"></span></li>
+        <li>Ціна: <span th:utext="${#numbers.formatDecimal(prodInfo.price,3,2,'COMMA')}"></span></li>
         <li>
-            <a th:href="@{|/buyProduct?code=${prodInfo.code}|}">Buy Now</a>
+            <a th:href="@{|/buyProduct?code=${prodInfo.code}|}">Купити зараз</a>
         </li>
         <!-- For Manager edit Product -->
         <th:block sec:authorize="hasAuthority('ROLE_MANAGER')">
             <li>
                 <a style="color:red;"
-                   th:href="@{|/admin/product?code=${prodInfo.code}|}">Edit Product</a>
+                   th:href="@{|/admin/product?code=${prodInfo.code}|}">Редагувати продукт</a>
             </li>
         </th:block>
     </ul>

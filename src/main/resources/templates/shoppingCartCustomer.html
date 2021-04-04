@@ -2,20 +2,20 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Enter Customer Information</title>
+    <title>Введення інформаціЇ про замовника</title>
     <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
 </head>
 <body>
 <th:block th:include="/_header"></th:block>
 <th:block th:include="/_menu"></th:block>
 
-<div class="page-title">Enter Customer Information</div>
+<div class="page-title">Введіть інформацію про замовника</div>
 
 <form method="POST" th:object = "${customerForm}" th:action="@{/shoppingCartCustomer}">
 
     <table>
         <tr>
-            <td>Name *</td>
+            <td>Ім'я *</td>
             <td><input th:field="*{name}" /></td>
             <td>
                   <span class="error-message"
@@ -31,7 +31,7 @@
             </td>
         </tr>
         <tr>
-            <td>Phone *</td>
+            <td>Телефон *</td>
             <td><input th:field="*{phone}" /></td>
             <td>
                   <span class="error-message"
@@ -39,7 +39,7 @@
             </td>
         </tr>
         <tr>
-            <td>Address *</td>
+            <td>Адреса *</td>
             <td><input th:field="*{address}" /></td>
             <td>
                   <span class="error-message"
@@ -48,8 +48,8 @@
         </tr>
         <tr>
             <td>&nbsp;</td>
-            <td><input type="submit" value="Submit" /> <input type="reset"
-                                                              value="Reset" /></td>
+            <td><input type="submit" value="Підтвердити" /> <input type="reset"
+                                                              value="Скидання" /></td>
         </tr>
     </table>
 

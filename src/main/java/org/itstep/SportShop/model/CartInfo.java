@@ -1,7 +1,14 @@
 package org.itstep.SportShop.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+
 import java.util.ArrayList;
 import java.util.List;
+@Data
+@EnableAutoConfiguration
+@AllArgsConstructor
 
 public class CartInfo {
 
@@ -61,9 +68,6 @@ public class CartInfo {
         }
     }
 
-    public void validate() {
-
-    }
     // Оновлення продукту
     public void updateProduct(String code, int quantity) {
         CartLineInfo line = this.findLineByCode(code);
@@ -86,10 +90,6 @@ public class CartInfo {
 
     public boolean isEmpty() {
         return this.cartLines.isEmpty();
-    }
-
-    public boolean isValidCustomer() {
-        return this.customerInfo != null && this.customerInfo.isValid();
     }
 
     public int getQuantityTotal() {
@@ -116,6 +116,9 @@ public class CartInfo {
             }
         }
 
-    }
 
+    }
+    public boolean isValidCustomer() {
+        return Boolean.parseBoolean("shoppingCartConfirmation");
+    }
 }

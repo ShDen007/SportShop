@@ -1,6 +1,14 @@
 package org.itstep.SportShop.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import org.itstep.SportShop.form.CustomerForm;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+
+@AllArgsConstructor
+@EnableAutoConfiguration
+@Data
+
 
 public class CustomerInfo {
 
@@ -10,10 +18,6 @@ public class CustomerInfo {
     private String phone;
 
     private boolean valid;
-
-    public CustomerInfo() {
-
-    }
 
     public CustomerInfo(CustomerForm customerForm) {
         this.name = customerForm.getName();
@@ -51,16 +55,9 @@ public class CustomerInfo {
         return phone;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
     public boolean isValid() {
         return valid;
     }
 
-    public void setValid(boolean valid) {
-        this.valid = valid;
-    }
 
 }

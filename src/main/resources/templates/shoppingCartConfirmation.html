@@ -2,26 +2,26 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Shopping Cart Confirmation</title>
+    <title>Підтвердження кошика</title>
     <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
 </head>
 <body>
 <th:block th:include="/_header"></th:block>
 <th:block th:include="/_menu"></th:block>
 
-<div class="page-title">Confirmation</div>
+<div class="page-title">Підтвердження</div>
 <div class="customer-info-container">
-    <h3>Customer Information:</h3>
+    <h3>Інформація замовника:</h3>
     <ul>
-        <li>Name: <span th:utext="${myCart.customerInfo.name}"></span></li>
+        <li>Ім'я: <span th:utext="${myCart.customerInfo.name}"></span></li>
         <li>Email: <span th:utext="${myCart.customerInfo.email}"></span></li>
-        <li>Phone: <span th:utext="${myCart.customerInfo.phone}"></span></li>
-        <li>Address: <span th:utext="${myCart.customerInfo.address}"></span></li>
+        <li>Телефон: <span th:utext="${myCart.customerInfo.phone}"></span></li>
+        <li>Адреса: <span th:utext="${myCart.customerInfo.address}"></span></li>
     </ul>
-    <h3>Cart Summary:</h3>
+    <h3>Підсумок кошика:</h3>
     <ul>
-        <li>Quantity: <span th:utext="${myCart.quantityTotal}"></span>$</li>
-        <li>Total:
+        <li>Кількість: <span th:utext="${myCart.quantityTotal}"></span>$</li>
+        <li>Разом:
             <span class="total"
                   th:utext="${#numbers.formatDecimal(myCart.amountTotal,3,2,'COMMA')}">
                </span>
@@ -31,14 +31,14 @@
 <form method="POST" th:action="@{/shoppingCartConfirmation}">
     <!-- Edit Cart -->
     <a class="navi-item" th:href="@{/shoppingCart}">
-        Edit Cart
+        Редагувати кошик
     </a>
     <!-- Edit Customer Info -->
     <a class="navi-item" th:href="@{/shoppingCartCustomer}">
-        Edit Customer Info
+        Редагувати інформацію про замовника
     </a>
     <!-- Send/Save -->
-    <input type="submit" value="Send" class="button-send-sc" />
+    <input type="submit" value="Відправити" class="button-send-sc" />
 </form>
 <div class="container">
     <div class="product-preview-container" th:each="cartLineInfo : ${myCart.cartLines}">
@@ -48,18 +48,18 @@
                      src="@{|/productImage?code=${cartLineInfo.productInfo.code}|}" />
             </li>
             <li>
-                Code: <span th:utext="${cartLineInfo.productInfo.code}"></span>
+                Код товару: <span th:utext="${cartLineInfo.productInfo.code}"></span>
                 <input
                         type="hidden" name="code" th:value="${cartLineInfo.productInfo.code}" />
             </li>
-            <li>Name: <span th:utext="${cartLineInfo.productInfo.name}"></span></li>
-            <li>Price:
+            <li>Назва: <span th:utext="${cartLineInfo.productInfo.name}"></span></li>
+            <li>Ціна:
                 <span class="price"
                       th:utext="${#numbers.formatDecimal(cartLineInfo.productInfo.price,3,2,'COMMA')}">
                   </span>
             </li>
-            <li>Quantity: <span th:utext="${cartLineInfo.quantity}"></span></li>
-            <li>Subtotal:
+            <li>Кількість: <span th:utext="${cartLineInfo.quantity}"></span></li>
+            <li>Сума:
                 <span class="subtotal"
                       th:utext="${#numbers.formatDecimal(cartLineInfo.amount,3,2,'COMMA')}">
                   </span>
