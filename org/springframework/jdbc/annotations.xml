@@ -1,0 +1,5 @@
+<root>
+    <item name='org.springframework.jdbc.BadSqlGrammarException'>
+        <annotation name='java.lang.Deprecated'/>
+    </item>
+</root>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Інтернет магазин спортивного одягу</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/styles.css}" />
+</head>
+<body>
+<th:block th:include="/_header"></th:block>
+<th:block th:include="/_menu"></th:block>
+
+<div class="page-title">Кошик покупок</div>
+<div class="demo-container">
+    <h3>Домашня сторінка</h3>
+    <ul>
+        <li>Покупки онлайн </li>
+        <li>Сторінка адміністратора</li>
+        <li>Звіт</li>
+    </ul>
+</div>
+
+<th:block th:include="/_footer"></th:block>
+
+</body>
+</html>
