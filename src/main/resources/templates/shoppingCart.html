@@ -11,12 +11,12 @@
 
 <div class="page-title">Корзина</div>
 
-<th:block th:if="${cartForm == null || cartForm.cartLines == null || cartForm.cartLines.empty}">
+<th:block th:if="${cartForm == null || cartForm.cartLines == null || cartForm.cartLines.isEmpty()}">
     <h2>У кошику немає товарів</h2>
     <a th:href="@{/productList}">Список покупок</a>
 </th:block>
 
-<th:block th:if="${cartForm != null && cartForm.cartLines != null && !cartForm.cartLines.empty}">
+<th:block th:if="${cartForm != null && cartForm.cartLines != null && !cartForm.cartLines.isEmpty()}">
     <form method="POST" th:object="${cartForm}" th:action="@{/shoppingCart}">
 
         <div class="product-preview-container"
@@ -38,7 +38,7 @@
                 </li>
                 <li>Кількість:
                     <input
-                            th:name="|cartLines[${varStatus.index}].quantity|"
+                            th:name="|cartLines${varStatus.index}.quantity|"
                             th:value="${cartLineInfo.quantity}" />
                 </li>
                 <li>Сума:

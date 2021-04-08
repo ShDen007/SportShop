@@ -6,7 +6,7 @@ import org.itstep.SportShop.entity.Account;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-@SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
+
 @Transactional
 @Repository
 public class AccountDAO {

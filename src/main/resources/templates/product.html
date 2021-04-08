@@ -20,7 +20,7 @@
         <tr>
             <td>код продукту *</td>
             <td style="color:red;">
-                <input th:field="*{Новий продукт}" type="hidden" />
+                <input th:field="*{newProduct}" type="hidden" />
                 <input th:if="${productForm.newProduct}" type="text"
                        th:field="*{code}" />
                 <th:block th:if="${!productForm.newProduct}">

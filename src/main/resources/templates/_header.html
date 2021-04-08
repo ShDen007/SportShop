@@ -1,20 +1,70 @@
 <div class="header-container"
      xmlns:th="http://www.thymeleaf.org"
      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+     <title>Спортивний одяг</title>
     <meta charset="UTF-8">
-    <div class="site-name">Онлайн магазин Спортивного одягу</div>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/lux/bootstrap.min.css">
+    </header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" th:href="@{/}">SportShop</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+                aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-    <div class="header-bar">
-        <th:block sec:authorize="isAuthenticated()">
-            Hello
-            <a th:href="@{/admin/accountInfo}" th:utext="${#request.userPrincipal.name}">..</a>
-            &nbsp;|&nbsp;
-            <a th:href="@{/admin/logout}">Вихід</a>
-        </th:block>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" th:href="@{/}">Головна сторінка
+                        <span class="sr-only">(current)</span>
+                    </a>
+                    <li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/productList}" >Каталог продуктів</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/delivery}">Доставка</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/payment}">Оплата</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/contact}">Контакти</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/shoppingCart}">Корзина</a>
+                </li>
 
-        <th:block sec:authorize="!isAuthenticated()">
-            <a th:href="@{/admin/login}">Авторизація</a>
-        </th:block>
-    </div>
+                <li class="nav-item">
+                <th:block sec:authorize="isAuthenticated()">
+                    <a class="nav-link" th:href="@{/admin/accountInfo}" th:utext="${#request.userPrincipal.name}">
+                    </a>
+                </th:block>
+                </li>
 
+                <li class="nav-item">
+                    <th:block sec:authorize="!isAuthenticated()">
+                        <a  class="nav-link" th:href="@{/admin/login}">Авторизація</a>
+                    </th:block>
+                </li>
+
+                <li class="nav-item">
+                    <th:block sec:authorize="!isAuthenticated()">
+                        <a  class="nav-link"  th:href="@{/admin/logout}">Вихід</a>
+                    </th:block></a>
+                </li>
+
+            </ul>
+            <li class="nav-item">
+                <th:block sec:authorize="isAuthenticated()">
+                    <a class="nav-link" th:href="@{/admin/accountInfo}" th:utext="${#request.userPrincipal.name}">
+                    </a>
+                </th:block>
+            </li>
+            <!--<form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+            </form>-->
+        </div>
+    </nav>
 </div>

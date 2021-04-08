@@ -1,18 +1,19 @@
 package org.itstep.SportShop.validator;
 
-import lombok.AllArgsConstructor;
 import org.itstep.SportShop.dao.ProductDAO;
 import org.itstep.SportShop.entity.Product;
 import org.itstep.SportShop.form.ProductForm;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
-@EnableAutoConfiguration
-@AllArgsConstructor
+
 @Component
 public class ProductFormValidator implements Validator {
+
+    public ProductFormValidator(ProductDAO productDAO) {
+        this.productDAO = productDAO;
+    }
 
     private final ProductDAO productDAO;
 

@@ -1,10 +1,14 @@
 <div class="footer-container" xmlns:th="http://www.thymeleaf.org">
     <meta charset="UTF-8">
-    <p> Моя сторінка. Всі права захищені <a rel="stylesheet" href="/policy">Політика конфіденційності</a>
-    <a rel="stylesheet" target="_self" href="/">SportShop</a>
-    </p>
-    <br>
-
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/lux/bootstrap.min.css">
+    <footer class="mt-5 py-4 text-center border-top">
+        <div class="container">
+        <div class="row">
+            <div class="col-12"><p>Наш онлайн інтернет магазин <a th:href="@{/}" rel="noopener" target="_blank">SportShop</a>,
+                <a href="https://itstep.org" rel="noopener nofollow" target="_blank">ItStep</a>,
+                <a th:href="@{/kontakt}">Про нас</a></p>
+                <p>
+                <a th:href="@{/policy}" rel="noopener" target="_blank">Privacy Policy</a>
+    </p></div></div></div></footer>
 
 </div>

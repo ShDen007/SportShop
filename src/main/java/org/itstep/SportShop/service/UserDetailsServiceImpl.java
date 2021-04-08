@@ -3,7 +3,7 @@ package org.itstep.SportShop.service;
 
 import org.itstep.SportShop.dao.AccountDAO;
 import org.itstep.SportShop.entity.Account;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -15,11 +15,15 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+@EnableWebSecurity
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 
-    @Autowired
-    private AccountDAO accountDAO;
+    private final AccountDAO accountDAO;
+
+    public UserDetailsServiceImpl(AccountDAO accountDAO) {
+        this.accountDAO = accountDAO;
+    }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -31,12 +35,12 @@ public class UserDetailsServiceImpl implements UserDetailsService {
                     + username + " was not found in the database");
         }
 
-        // EMPLOYEE,MANAGER,..
+        // Адміністратор
         String role = account.getUserRole();
 
         List<GrantedAuthority> grantList = new ArrayList<GrantedAuthority>();
 
-        // ROLE_EMPLOYEE, ROLE_MANAGER
+        // Роль Адміна, Роль менеджера
         GrantedAuthority authority = new SimpleGrantedAuthority(role);
 
         grantList.add(authority);

@@ -1,15 +1,15 @@
 package org.itstep.SportShop.pagination;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.hibernate.ScrollMode;
 import org.hibernate.ScrollableResults;
 import org.hibernate.query.Query;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class PaginationResult<E> {
 
-    private int totalRecords;
+    private final int totalRecords;
     private int currentPage;
     private List<E> list;
     private int maxResult;

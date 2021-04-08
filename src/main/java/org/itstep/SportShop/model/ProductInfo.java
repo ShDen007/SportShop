@@ -1,12 +1,10 @@
 package org.itstep.SportShop.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.itstep.SportShop.entity.Product;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 
 @Data
-@AllArgsConstructor
 @EnableAutoConfiguration
 
 public class ProductInfo {
@@ -19,6 +17,10 @@ public class ProductInfo {
         this.name = product.getName();
         this.price = product.getPrice();
     }
+
+    public ProductInfo(String code, String name, double price) {
+    }
+
     public String getCode() {
         return code;
     }

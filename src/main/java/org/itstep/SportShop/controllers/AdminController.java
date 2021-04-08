@@ -9,6 +9,7 @@ import org.itstep.SportShop.model.OrderDetailInfo;
 import org.itstep.SportShop.model.OrderInfo;
 import org.itstep.SportShop.pagination.PaginationResult;
 import org.itstep.SportShop.validator.ProductFormValidator;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -19,9 +20,10 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import java.util.List;
 
-@SuppressWarnings("ALL")
+@EnableAutoConfiguration
 @Controller
 @Transactional
 public class AdminController {
@@ -54,6 +56,7 @@ public class AdminController {
     // GET: Відображення сторінки авторизації
     @RequestMapping(value = { "/admin/login" }, method = RequestMethod.GET)
     public String login(Model model) {
+
         return "login";
     }
 
@@ -122,7 +125,7 @@ public class AdminController {
             Throwable rootCause = ExceptionUtils.getRootCause(e);
             String message = rootCause.getMessage();
             model.addAttribute("errorMessage", message);
-            // Show product form.
+            // Перегляд форми продукту.
             return "product";
         }
 

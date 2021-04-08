@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Оплата</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/lux/bootstrap.min.css">
+    <th:block th:include="/_header"></th:block>
+</head>
+<body>
+<main class="flex-shrink-0">
+    <div class="container">
+        <h1 class="mt-5">Способи оплати продукції</h1>
+        <p class="lead"> <p><strong>Способи оплати:</strong><br>Накладений платіж “Нова Пошта”<br><br><strong>Безготівковий розрахунок</strong>
+        <br>Оплата на р / рах ФОП Семен Семенович Семенко р / рах 260000000000000123 в
+        Кам’янко-Бузькому РВ КБ ПАТ Приватбанк МФО 000000 ОКПО 00000006 оплата проводиться на підставі наданого Рахунки-фактури</p>
+
+        <p><strong>Готівкою</strong><br>Оплата готівкою можлива в разі самовивозу продукції зі складу продавця або при доставці Кур’єрською службою.</p>
+
+        <p><strong>Накладений платіж</strong><br>Оплата проводиться при отримані товарів, продукції у відділені транспортної компанії. <strong>
+            <br>Діє не на всі групи товарів.</strong></p>
+
+        <p><strong>Передоплата на карту Приватбанк</strong>
+            <br>реквізити для оплати відправляються після узгодження замовлення в формі SМS, Viber повідомлення на телефон і / або email покупця.</p></p>
+        <p>Use <a th:href="@{/productList}">Перейти до Каталогу продукції</a></p>
+    </div>
+</main>
+</body>
+<th:block th:include="/_footer"></th:block>
+</html>
