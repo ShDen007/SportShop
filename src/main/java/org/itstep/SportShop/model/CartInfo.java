@@ -1,14 +1,7 @@
 package org.itstep.SportShop.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-
 import java.util.ArrayList;
 import java.util.List;
-@Data
-@EnableAutoConfiguration
-@AllArgsConstructor
 
 public class CartInfo {
 
@@ -50,7 +43,7 @@ public class CartInfo {
         }
         return null;
     }
-    // Додавання продукту
+
     public void addProduct(ProductInfo productInfo, int quantity) {
         CartLineInfo line = this.findLineByCode(productInfo.getCode());
 
@@ -68,7 +61,10 @@ public class CartInfo {
         }
     }
 
-    // Оновлення продукту
+    public void validate() {
+
+    }
+
     public void updateProduct(String code, int quantity) {
         CartLineInfo line = this.findLineByCode(code);
 
@@ -80,7 +76,7 @@ public class CartInfo {
             }
         }
     }
-    // Видалення продукту
+
     public void removeProduct(ProductInfo productInfo) {
         CartLineInfo line = this.findLineByCode(productInfo.getCode());
         if (line != null) {
@@ -90,6 +86,10 @@ public class CartInfo {
 
     public boolean isEmpty() {
         return this.cartLines.isEmpty();
+    }
+
+    public boolean isValidCustomer() {
+        return this.customerInfo != null && this.customerInfo.isValid();
     }
 
     public int getQuantityTotal() {
@@ -107,7 +107,7 @@ public class CartInfo {
         }
         return total;
     }
-    // Оновлення кількості
+
     public void updateQuantity(CartInfo cartForm) {
         if (cartForm != null) {
             List<CartLineInfo> lines = cartForm.getCartLines();
@@ -116,9 +116,6 @@ public class CartInfo {
             }
         }
 
+    }
 
-    }
-    public boolean isValidCustomer() {
-        return Boolean.parseBoolean("shoppingCartConfirmation");
-    }
 }

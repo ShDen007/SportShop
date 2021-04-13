@@ -7,6 +7,7 @@ import org.itstep.SportShop.entity.Product;
 import org.itstep.SportShop.form.ProductForm;
 import org.itstep.SportShop.model.ProductInfo;
 import org.itstep.SportShop.pagination.PaginationResult;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,16 +16,12 @@ import javax.persistence.NoResultException;
 import java.io.IOException;
 import java.util.Date;
 
-
 @Transactional
 @Repository
 public class ProductDAO {
 
-    private final SessionFactory sessionFactory;
-
-    public ProductDAO(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
-    }
+    @Autowired
+    private SessionFactory sessionFactory;
 
     public Product findProduct(String code) {
         try {
@@ -81,7 +78,7 @@ public class ProductDAO {
         if (isNew) {
             session.persist(product);
         }
-        // Якщо помилка в БД, винятки буде негайно видалено
+        // If error in DB, Exceptions will be thrown out immediately
         session.flush();
     }
 

@@ -7,14 +7,9 @@
     <th:block th:include="/_header"></th:block>
 </head>
 <body class="text-center" style="background: #bcbebf">
-<!--<th:block th:include="/_menu"></th:block>-->
-
-<div class="page-title">Авторизуватись</div>
-
+<th:block th:include="/_menu"></th:block>
 <br>
 <br>
-
-<h3>Введіть ім'я користувача і пароль</h3>
 <th:block th:if="${#session != null && #session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION') != null}">
     <div th:if= "${#request.getParameter('error') == 'true'}"
          style="color: red; margin: 10px 0px;">
@@ -26,9 +21,8 @@
 <main class="form-signin">
     <form method="POST"
           th:action="@{/j_spring_security_check}">
-        <img srcset="img" class="mb-4"  alt="" width="72" height="57">
-        <h1 class="h3 mb-3 fw-normal">Авторизуватись</h1>
-
+        <h1 class="h3 mb-3 fw-normal">Авторизація</h1>
+        <h5>Введіть ім'я користувача і пароль</h5>
         <div class="form-floating">
             <input name="userName" />
         </div>
@@ -41,11 +35,13 @@
                 <input type="checkbox" value="remember-me"> Запамятати мене
             </label>
         </div>
-        <button class="w-25 btn btn-lg btn-primary" type="submit" value="Авторизація">Авторизація</button>
+        <button class="w-5 btn btn-light btn-primary" type="submit" value="Авторизація">Авторизація</button>
+        <button class="w-5 btn btn-light btn-primary" type="reset" value="Скинути">Скинути</button>
+
 
     </form>
 </main>
-    <span class="error-message" th:utext="${error}"></span>
+<span class="error-message" th:utext="${error}"></span>
 
 
 <th:block th:include="/_footer"></th:block>

@@ -29,6 +29,7 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
         <td th:utext="${orderInfo.customerEmail}"></td>
         <td style="color:red;" th:utext="${#numbers.formatDecimal(orderInfo.amount,3,2,'COMMA')}">
         </td>
+        <td><a th:href="@{|/admin/order?orderId=${orderInfo.id}|}">Перегляд деталей</a></td>
     </tr>
 </table>
 <div class="page-navigator" th:if="${paginationResult.totalPages > 1}" >
@@ -36,7 +37,7 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
         <a th:if="${page != -1}" class="nav-item"
            th:href="@{|/admin/orderList?page=${page}|}" th:utext="${page}"></a>
 
-        <span th:if="${page == -1}" class="nav-item"> ... </span>
+        <span th:if="${page == -1}" class="nav-item"> >>>> </span>
     </th:block>
 </div>
 

@@ -10,7 +10,7 @@ public class ProductForm {
 
     private boolean newProduct = false;
 
-    // Upload file.
+    // Завантаження файла
     private MultipartFile fileData;
 
     public ProductForm() {

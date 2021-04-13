@@ -8,7 +8,7 @@
 <body>
 
 <th:block th:include="/_header"></th:block>
-<!--<th:block th:include="/_menu"></th:block>-->
+<th:block th:include="/_menu"></th:block>
 
 <div class="page-title">Інформація про Акаунт</div>
 <div class="account-container">
@@ -17,9 +17,12 @@
         <li>
             Роль:
             <ul>
-                <li th:each="auth : ${userDetails.authorities}" th:utext="${auth.authority}"></li>
+                <li style="color: #6a1a21" th:each="auth : ${userDetails.authorities}" th:utext="${auth.authority}"></li>
             </ul>
         </li>
+        <th:block sec:authorize="isAuthenticated()">
+            <a  class="nav-link"  th:href="@{/admin/logout}">Вихід</a>
+        </th:block></a>
     </ul>
 </div>
 

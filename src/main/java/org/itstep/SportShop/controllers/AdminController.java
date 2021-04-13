@@ -53,13 +53,13 @@ public class AdminController {
         }
     }
 
-    // GET: Відображення сторінки авторизації
+    // Сторінка авторизації
     @RequestMapping(value = { "/admin/login" }, method = RequestMethod.GET)
     public String login(Model model) {
 
         return "login";
     }
-
+    // Відображення інформації про акаунт
     @RequestMapping(value = { "/admin/accountInfo" }, method = RequestMethod.GET)
     public String accountInfo(Model model) {
 
@@ -71,7 +71,7 @@ public class AdminController {
         model.addAttribute("userDetails", userDetails);
         return "accountInfo";
     }
-
+    // Список замовлень
     @RequestMapping(value = { "/admin/orderList" }, method = RequestMethod.GET)
     public String orderList(Model model, //
                             @RequestParam(value = "page", defaultValue = "1") String pageStr) {
@@ -90,7 +90,7 @@ public class AdminController {
         return "orderList";
     }
 
-    // GET: Перегляд продукту
+    // Перегляд продукту
     @RequestMapping(value = { "/admin/product" }, method = RequestMethod.GET)
     public String product(Model model, @RequestParam(value = "code", defaultValue = "") String code) {
         ProductForm productForm = null;
@@ -109,7 +109,7 @@ public class AdminController {
         return "product";
     }
 
-    // POST: Збереження продукту
+    //  Збереження продукту
     @RequestMapping(value = { "/admin/product" }, method = RequestMethod.POST)
     public String productSave(Model model, //
                               @ModelAttribute("productForm") @Validated ProductForm productForm, //
@@ -131,7 +131,7 @@ public class AdminController {
 
         return "redirect:/productList";
     }
-    // GET: Перегляд покупок
+    // Перегляд покупок
     @RequestMapping(value = { "/admin/order" }, method = RequestMethod.GET)
     public String orderView(Model model, @RequestParam("orderId") String orderId) {
         OrderInfo orderInfo = null;

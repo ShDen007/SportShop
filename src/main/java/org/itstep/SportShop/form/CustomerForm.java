@@ -8,6 +8,7 @@ public class CustomerForm {
     private String address;
     private String email;
     private String phone;
+
     private boolean valid;
 
     public CustomerForm() {

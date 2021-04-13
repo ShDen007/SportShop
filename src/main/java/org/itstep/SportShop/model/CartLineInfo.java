@@ -1,14 +1,5 @@
 package org.itstep.SportShop.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-
-@Data
-@AllArgsConstructor
-@EnableAutoConfiguration
-
-
 public class CartLineInfo {
 
     private ProductInfo productInfo;

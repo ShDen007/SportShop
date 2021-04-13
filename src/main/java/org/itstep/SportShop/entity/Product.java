@@ -1,18 +1,11 @@
 package org.itstep.SportShop.entity;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Lob;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-
 @Entity
-@Table(name = "Products")
+@Table(name = "products")
 public class Product implements Serializable {
 
     private static final long serialVersionUID = -1000119078147252957L;
@@ -21,7 +14,7 @@ public class Product implements Serializable {
     @Column(name = "Code", length = 20, nullable = false)
     private String code;
 
-    @Column(name = "Name", length = 255, nullable = false)
+    @Column(name = "Name", length = 245, nullable = false)
     private String name;
 
     @Column(name = "Price", nullable = false)

@@ -9,7 +9,7 @@ import java.util.List;
 
 public class PaginationResult<E> {
 
-    private final int totalRecords;
+    private int totalRecords;
     private int currentPage;
     private List<E> list;
     private int maxResult;

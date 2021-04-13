@@ -1,16 +1,11 @@
 package org.itstep.SportShop.entity;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
-
 @Entity
-@Table(name = "Orders", //
+@Table(name = "Orders",
         uniqueConstraints = { @UniqueConstraint(columnNames = "Order_Num") })
 public class Order implements Serializable {
 
@@ -29,10 +24,10 @@ public class Order implements Serializable {
     @Column(name = "Amount", nullable = false)
     private double amount;
 
-    @Column(name = "Customer_Name", length = 255, nullable = false)
+    @Column(name = "Customer_Name", length = 150, nullable = false)
     private String customerName;
 
-    @Column(name = "Customer_Address", length = 255, nullable = false)
+    @Column(name = "Customer_Address", length = 150, nullable = false)
     private String customerAddress;
 
     @Column(name = "Customer_Email", length = 128, nullable = false)

@@ -5,10 +5,11 @@
     <meta charset="UTF-8">
     <title>Підтвердження кошика</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/lux/bootstrap.min.css">
+
 </head>
 <body>
 <th:block th:include="/_header"></th:block>
-<!--<th:block th:include="/_menu"></th:block>-->
+<th:block th:include="/_menu"></th:block>
 
 <div class="page-title">Підтвердження</div>
 <div class="customer-info-container">
@@ -30,15 +31,15 @@
     </ul>
 </div>
 <form method="POST" th:action="@{/shoppingCartConfirmation}">
-    <!-- Edit Cart -->
+    <!-- Редагувати корзину -->
     <a class="navi-item" th:href="@{/shoppingCart}">
         Редагувати кошик
     </a>
-    <!-- Edit Customer Info -->
+    <!-- Редагувати інформацію про замовника -->
     <a class="navi-item" th:href="@{/shoppingCartCustomer}">
         Редагувати інформацію про замовника
     </a>
-    <!-- Send/Save -->
+    <!-- Зберегти відправити -->
     <input type="submit" value="Відправити" class="button-send-sc" />
 </form>
 <div class="container">

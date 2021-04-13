@@ -8,7 +8,7 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 </head>
 <body>
 <th:block th:include="/_header"></th:block>
-<!--<th:block th:include="/_menu"></th:block>-->
+<th:block th:include="/_menu"></th:block>
 
 <div class="page-title">Введіть інформацію про замовника</div>
 
@@ -16,7 +16,7 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 
     <table>
         <tr>
-            <td>Ім'я *</td>
+            <td>Name *</td>
             <td><input th:field="*{name}" /></td>
             <td>
                   <span class="error-message"
@@ -32,7 +32,7 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
             </td>
         </tr>
         <tr>
-            <td>Телефон *</td>
+            <td>Phone *</td>
             <td><input th:field="*{phone}" /></td>
             <td>
                   <span class="error-message"
@@ -40,7 +40,7 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
             </td>
         </tr>
         <tr>
-            <td>Адреса *</td>
+            <td>Address *</td>
             <td><input th:field="*{address}" /></td>
             <td>
                   <span class="error-message"
@@ -49,12 +49,13 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
         </tr>
         <tr>
             <td>&nbsp;</td>
-            <td><input type="submit" value="Підтвердити" /> <input type="reset"
-                                                              value="Скидання" /></td>
+            <td><input type="submit" value="Submit" /> <input type="reset"
+                                                              value="Reset" /></td>
         </tr>
     </table>
 
 </form>
+
 
 <th:block th:include="/_footer"></th:block>
 

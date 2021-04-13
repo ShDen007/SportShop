@@ -1,85 +1,21 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
- xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Інтернет магазин спортивного одягу</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/lux/bootstrap.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/lux/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css">
-    <link rel="stylesheet" href="/lightbox-gallery-for-website-with-bootstrap/css/style.css">
-    <th:block th:include="/_header"></th:block>
+
 </head>
-<style>
-    body{
-        background-color: #ededf6;
-    }
-    .position-relative{
-        background-image: url("img/C01.jpg");
-        background-position: center;
-        background-size: contain;
-    }
-</style>
 <body>
-<!--<th:block th:include="/_menu"></th:block>-->
-<div name="h" class="position-relative overflow-hidden p-5 p-md-5 m-md-0 text-center bg-">
+<th:block th:include="/_header"></th:block>
+<th:block th:include="/_menu"></th:block>
 
-    <div  align=center class="col-md-5 p-lg-5 mx-auto my-5">
-        <h1 class="display-4 fw-normal" align=center>Раді вітати Вас у SportShop</h1>
-        <p class="lead fw-normal" align=center>У нашому магазині представлені найкращі
-            лінійки спортивного одягу від кращих відомих виробників. Adidas Nike UMBRO Spandi Acics Reebok Diadora Korn
-            та інші
-        </p>
-        <a class="btn btn-outline-secondary, rowColor" th:href="@{/productList}">Перейти до покупок</a>
-    </div>
-    <div class="product-device shadow-sm d-none d-md-block"></div>
-    <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
-</div>
-<br>
-
-<br><br><br><br><br>
-<div class="container" >
-    <div class="row">
-
-        <div class="col-lg-12"><h1 class="page-header"><div>Галерея спортивного одягу</div></h1></div>
-        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-            <a class="thumbnail" href="/lightbox-gallery-for-website-with-bootstrap/img/1.jpg" data-lightbox="imgGLR" >
-                <img class="img-responsive" border="0" height="300" src="img/1.jpg" width="400" /></a></div>
-        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-            <a class="thumbnail" href="img/2.jpg" data-lightbox="imgGLR" >
-                <img class="img-responsive" border="0" height="300" src="img/2.jpg" width="400" /></a></div>
-        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-            <a class="thumbnail" href="img/3.jpg" data-lightbox="imgGLR" >
-                <img class="img-responsive" border="0" height="300" src="img/3.jpg" width="400" /></a></div>
-        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-            <a class="thumbnail" href="img/4.jpg" data-lightbox="imgGLR" >
-                <img class="img-responsive" border="0" height="300" src="img/4.jpg" width="400" /></a></div>
-        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-            <a class="thumbnail" href="img/5.jpg" data-lightbox="imgGLR" >
-                <img class="img-responsive" border="0" height="300" src="img/5.jpg" width="400" /></a></div>
-        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-            <a class="thumbnail" href="img/6.jpg" data-lightbox="imgGLR" >
-                <img class="img-responsive" border="0" height="300" src="img/6.jpg" width="400" /></a></div>
-        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-            <a class="thumbnail" href="img/7.jpg" data-lightbox="imgGLR" >
-                <img class="img-responsive" border="0" height="300" src="img/7.jpg" width="400" /></a></div>
-        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-            <a class="thumbnail" href="img/8.jpg" data-lightbox="imgGLR" >
-                <img class="img-responsive" border="0" height="300" src="img/8.jpg" width="400" /></a></div>
-
-    </div>
-</div>
-<script src="js/lightbox-plus-jquery.js"></script>
-</body>
-
-
-<div class="demo-container,text-center">
+<div class="page-title">Корзина покупок</div>
+<div class="demo-container">
     <h3>Домашня сторінка</h3>
     <ul>
-        <li><a th:href="@{/productList}" >Покупки онлайн</a></li>
-        <li>Сторінка адміністратора</li>
-        <li>Звіт</li>
+        <a th:href="@{/productList}"><li th:href="@{/productList}">Покупки онлайн </li></a>
+
     </ul>
 </div>
 

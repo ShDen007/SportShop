@@ -25,7 +25,7 @@ public class OrderInfo {
 
     private List<OrderDetailInfo> details;
 
-    // Using for Hibernate Query.
+    // Використання для запиту Hibernate.
     public OrderInfo(String id, Date orderDate, int orderNum, //
                      double amount, String customerName, String customerAddress, //
                      String customerEmail, String customerPhone) {

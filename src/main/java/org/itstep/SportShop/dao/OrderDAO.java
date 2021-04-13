@@ -8,6 +8,7 @@ import org.itstep.SportShop.entity.OrderDetail;
 import org.itstep.SportShop.entity.Product;
 import org.itstep.SportShop.model.*;
 import org.itstep.SportShop.pagination.PaginationResult;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,19 +16,15 @@ import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
-
 @Transactional
 @Repository
 public class OrderDAO {
 
-    private final SessionFactory sessionFactory;
+    @Autowired
+    private SessionFactory sessionFactory;
 
-    private final ProductDAO productDAO;
-
-    public OrderDAO(SessionFactory sessionFactory, ProductDAO productDAO) {
-        this.sessionFactory = sessionFactory;
-        this.productDAO = productDAO;
-    }
+    @Autowired
+    private ProductDAO productDAO;
 
     private int getMaxOrderNum() {
         String sql = "Select max(o.orderNum) from " + Order.class.getName() + " o ";
@@ -77,7 +74,7 @@ public class OrderDAO {
             session.persist(detail);
         }
 
-        // Номер замовлення!
+        // Order Number!
         cartInfo.setOrderNum(orderNum);
         // Flush
         session.flush();

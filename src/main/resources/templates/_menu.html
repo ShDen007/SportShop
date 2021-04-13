@@ -2,6 +2,7 @@
      xmlns:th="http://www.thymeleaf.org"
      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" >
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/lux/bootstrap.min.css">
     <a th:href="@{/}">Меню</a>
     |
     <a th:href="@{/productList}">
@@ -9,16 +10,16 @@
     </a>
     |
     <a th:href="@{/shoppingCart}">
-        Моя корзина
+        Корзина
     </a>
     |
-    <th:block sec:authorize="hasAnyRole('ROLE_MANAGER','ROLE_EMPLOYEE')">
+    <th:block sec:authorize="hasAnyRole('ROLE_ADMIN')">
         <a th:href="@{/admin/orderList}">
-            Список покупок
+            Список замовлень
         </a>
         |
     </th:block>
-    <th:block sec:authorize="hasRole('ROLE_MANAGER')">
+    <th:block sec:authorize="hasRole('ROLE_ADMIN')">
         <a th:href="@{/admin/product}">
             Створити продукт
         </a>
