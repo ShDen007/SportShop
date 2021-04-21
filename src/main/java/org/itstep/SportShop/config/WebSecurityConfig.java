@@ -55,8 +55,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .failureUrl("/admin/login?error=true")//
                 .usernameParameter("userName")//
                 .passwordParameter("password")
-                // Конфігурація для сторінки виходу.
-                // (Після виходу перехід на Головну сторінку)
+        // Конфігурація для сторінки виходу.
+        // (Після виходу перехід на Головну сторінку)
                 .and()
                 .logout()
                 .logoutUrl("/admin/logout")

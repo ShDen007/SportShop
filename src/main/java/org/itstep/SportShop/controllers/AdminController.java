@@ -131,6 +131,14 @@ public class AdminController {
 
         return "redirect:/productList";
     }
+
+    @RequestMapping(value = "/admin/delete{code}", method = RequestMethod.DELETE)
+    public String delete(@PathVariable("code") String code, final RedirectAttributes redirectAttributes) {
+        productDAO.delete(code);
+        return "redirect:/productList";
+    }
+
+
     // Перегляд покупок
     @RequestMapping(value = { "/admin/order" }, method = RequestMethod.GET)
     public String orderView(Model model, @RequestParam("orderId") String orderId) {

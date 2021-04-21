@@ -17,6 +17,15 @@ public class Product implements Serializable {
     @Column(name = "Name", length = 245, nullable = false)
     private String name;
 
+    @Column(name = "Brand",length = 254, nullable = false)
+    private String brand;
+
+    @Column(name = "Color", length = 254, nullable = false)
+    private String color;
+
+    @Column(name = "Size", length = 50, nullable = false)
+    private String size;
+
     @Column(name = "Price", nullable = false)
     private double price;
 
@@ -47,9 +56,19 @@ public class Product implements Serializable {
         this.name = name;
     }
 
-    public double getPrice() {
-        return price;
-    }
+   public String getBrand() { return brand;}
+
+   public void setBrand(String brand) { this.brand = brand;}
+
+   public String getColor() { return color;}
+
+   public void setColor(String color) { this.color = color;   }
+
+   public String getSize() { return size;   }
+
+   public void setSize(String size) { this.size = size;   }
+
+    public double getPrice() { return price; }
 
     public void setPrice(double price) {
         this.price = price;

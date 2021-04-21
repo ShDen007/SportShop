@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Інформація про замовлення</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/lux/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous">
 </head>
 <body>
 <th:block th:include="/_header"></th:block>
@@ -14,7 +17,7 @@
 <div class="customer-info-container">
     <h3>Інформація про замовника:</h3>
     <ul>
-        <li>Назва: <span th:utext="${orderInfo.customerName}"></span></li>
+        <li>Прізвище Ім'я: <span th:utext="${orderInfo.customerName}"></span></li>
         <li>Email: <span th:utext="${orderInfo.customerEmail}"></span></li>
         <li>Телефон: <span th:utext="${orderInfo.customerPhone}"></span></li>
         <li>Адреса: <span th:utext="${orderInfo.customerAddress}"></span></li>
@@ -44,8 +47,15 @@
         <td th:utext="${#numbers.formatDecimal(orderDetailInfo.amount,3,2,'COMMA')}"></td>
     </tr>
 </table>
+<button type="button" class="btn btn-primary">
+    <a style="color: #0dcaf0" th:href="@{/admin/orderList}">Назад до списку за мовлень</a>
+</button>
 
 <th:block th:include="/_footer"></th:block>
 
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+        crossorigin="anonymous"></script>
 </body>
 </html>

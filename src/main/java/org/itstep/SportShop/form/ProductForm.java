@@ -6,11 +6,14 @@ import org.springframework.web.multipart.MultipartFile;
 public class ProductForm {
     private String code;
     private String name;
+    private String brand;
+    private String color;
+    private String size;
     private double price;
 
     private boolean newProduct = false;
 
-    // Завантаження файла
+    // Завантаження файла.
     private MultipartFile fileData;
 
     public ProductForm() {
@@ -20,6 +23,9 @@ public class ProductForm {
     public ProductForm(Product product) {
         this.code = product.getCode();
         this.name = product.getName();
+        this.brand = product.getBrand();
+        this.color = product.getColor();
+        this.size = product.getSize();
         this.price = product.getPrice();
     }
 
@@ -37,6 +43,30 @@ public class ProductForm {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public String getSize() {
+        return size;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
     }
 
     public double getPrice() {

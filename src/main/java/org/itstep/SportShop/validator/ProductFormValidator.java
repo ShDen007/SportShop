@@ -30,6 +30,9 @@ public class ProductFormValidator implements Validator {
         // Перевірка поля ProductForm.
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "code", "NotEmpty.productForm.code");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", "NotEmpty.productForm.name");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "brand", "NotEmpty.productForm.brand");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "color", "NotEmpty.productForm.color");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "size", "NotEmpty.productForm.size");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "price", "NotEmpty.productForm.price");
 
         String code = productForm.getCode();

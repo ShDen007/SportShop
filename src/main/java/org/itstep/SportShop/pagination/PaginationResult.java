@@ -33,7 +33,7 @@ public class PaginationResult<E> {
         boolean hasResult = resultScroll.first();
 
         if (hasResult) {
-            // Scroll to position:
+            // Прокручування позиції:
             hasResult = resultScroll.scroll(fromRecordIndex);
 
             if (hasResult) {
@@ -46,11 +46,11 @@ public class PaginationResult<E> {
 
             }
 
-            // Go to Last record.
+            // Перехід до останнього запису.
             resultScroll.last();
         }
 
-        // Total Records
+        // Підсумок запису
         this.totalRecords = resultScroll.getRowNumber() + 1;
         this.currentPage = pageIndex + 1;
         this.list = results;
@@ -80,11 +80,11 @@ public class PaginationResult<E> {
         int begin = current - this.maxNavigationPage / 2;
         int end = current + this.maxNavigationPage / 2;
 
-        // The first page
+        // Перша сторінка
         navigationPages.add(1);
         if (begin > 2) {
 
-            // Using for '...'
+            // Для '...'
             navigationPages.add(-1);
         }
 
@@ -96,10 +96,10 @@ public class PaginationResult<E> {
 
         if (end < this.totalPages - 2) {
 
-            // Using for '...'
+            // Для '...'
             navigationPages.add(-1);
         }
-        // The last page.
+        // Остання сторінка.
         navigationPages.add(this.totalPages);
     }
 

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Підтвердження кошика</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/lux/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/main.css">
 
 </head>
 <body>
@@ -15,7 +16,7 @@
 <div class="customer-info-container">
     <h3>Інформація замовника:</h3>
     <ul>
-        <li>Ім'я: <span th:utext="${myCart.customerInfo.name}"></span></li>
+        <li>Прізвище Ім'я: <span th:utext="${myCart.customerInfo.name}"></span></li>
         <li>Email: <span th:utext="${myCart.customerInfo.email}"></span></li>
         <li>Телефон: <span th:utext="${myCart.customerInfo.phone}"></span></li>
         <li>Адреса: <span th:utext="${myCart.customerInfo.address}"></span></li>
@@ -47,7 +48,7 @@
         <ul>
             <li>
                 <img class="product-image"
-                     src="@{|/productImage?code=${cartLineInfo.productInfo.code}|}" />
+                     th:src="@{|/productImage?code=${cartLineInfo.productInfo.code}|}" />
             </li>
             <li>
                 Код товару: <span th:utext="${cartLineInfo.productInfo.code}"></span>

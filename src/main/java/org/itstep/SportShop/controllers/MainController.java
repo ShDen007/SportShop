@@ -25,6 +25,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+@SuppressWarnings("UastIncorrectMimeTypeInspection")
 @EnableAutoConfiguration
 @Configuration
 @Controller
@@ -112,6 +113,10 @@ public class MainController {
         model.addAttribute("paginationProducts", result);
         return "productList";
     }
+
+
+
+
     // Покупка продуктів
     @RequestMapping({ "/buyProduct" })
     public String listProductHandler(HttpServletRequest request, Model model, //
@@ -286,5 +291,4 @@ public class MainController {
         }
         response.getOutputStream().close();
     }
-
 }

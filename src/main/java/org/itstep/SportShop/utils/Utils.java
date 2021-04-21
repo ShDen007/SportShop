@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 
 public class Utils {
 
-    // Products in the cart, stored in Session.
+    // Товари в кошику, що зберігаються в сеансі.
     public static CartInfo getCartInSession(HttpServletRequest request) {
 
         CartInfo cartInfo = (CartInfo) request.getSession().getAttribute("myCart");
@@ -24,7 +24,6 @@ public class Utils {
     public static void removeCartInSession(HttpServletRequest request) {
         request.getSession().removeAttribute("myCart");
     }
-
     public static void storeLastOrderedCartInSession(HttpServletRequest request, CartInfo cartInfo) {
         request.getSession().setAttribute("lastOrderedCart", cartInfo);
     }

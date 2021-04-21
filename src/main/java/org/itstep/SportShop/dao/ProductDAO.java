@@ -41,8 +41,11 @@ public class ProductDAO {
         if (product == null) {
             return null;
         }
-        return new ProductInfo(product.getCode(), product.getName(), product.getPrice());
+        return new ProductInfo(product.getCode(), product.getName(), product.getBrand(),
+                product.getColor(), product.getSize(), product.getPrice());
     }
+
+
 
     @Transactional(propagation = Propagation.REQUIRES_NEW, rollbackFor = Exception.class)
     public void save(ProductForm productForm) {
@@ -63,6 +66,9 @@ public class ProductDAO {
         }
         product.setCode(code);
         product.setName(productForm.getName());
+        product.setBrand(productForm.getBrand());
+        product.setColor(productForm.getColor());
+        product.setSize(productForm.getSize());
         product.setPrice(productForm.getPrice());
 
         if (productForm.getFileData() != null) {
@@ -78,14 +84,21 @@ public class ProductDAO {
         if (isNew) {
             session.persist(product);
         }
-        // If error in DB, Exceptions will be thrown out immediately
         session.flush();
     }
+    public void delete(String code) {
+        Session session = sessionFactory.getCurrentSession();
+        Query deleteQuery = session.createQuery("DELETE FROM Product p WHERE p.code = :code");
+        deleteQuery.setParameter("code", code);
+        deleteQuery.executeUpdate();
+    }
+
+
 
     public PaginationResult<ProductInfo> queryProducts(int page, int maxResult, int maxNavigationPage,
                                                        String likeName) {
         String sql = "Select new " + ProductInfo.class.getName() //
-                + "(p.code, p.name, p.price) " + " from "//
+                + "(p.code, p.name, p.brand, p.color, p.size, p.price) " + " from "//
                 + Product.class.getName() + " p ";
         if (likeName != null && likeName.length() > 0) {
             sql += " Where lower(p.name) like :likeName ";
