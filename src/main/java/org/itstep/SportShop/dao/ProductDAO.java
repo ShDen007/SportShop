@@ -18,7 +18,7 @@ import java.util.Date;
 
 @Transactional
 @Repository
-public class ProductDAO {
+public class ProductDAO<code> {
 
     @Autowired
     private SessionFactory sessionFactory;

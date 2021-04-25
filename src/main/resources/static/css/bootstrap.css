@@ -5287,7 +5287,7 @@ a.badge-dark:focus, a.badge-dark.focus {
 }
 
 .jumbotron {
-  background-image: url(img/C01.jpg);
+  background-image: url(../img/C01.jpg);
   background-position: center;
   background-size: inherit;
   padding: 2rem 1rem;

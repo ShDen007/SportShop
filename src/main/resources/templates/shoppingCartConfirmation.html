@@ -6,6 +6,35 @@
     <title>Підтвердження кошика</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/lux/bootstrap.min.css">
     <link rel="stylesheet" href="/static/css/main.css">
+<style>
+    .product-image{
+        width: 350px;
+        height: 300px;
+        max-width: 400px;
+        position: static;
+        left: 0px;
+        top: 0px;
+        margin-left: -20px;
+        margin-top: 10px;
+    }
+    .product-preview-container{
+        position: relative;
+        width: 350px;
+        max-width: 400px;
+        margin: 10px ;
+        text-align:left;
+        position: relative;
+    }
+    .btn2{
+        font-size: 35px;
+        width: 250px;
+        text-align: left;
+        padding-left: 35px;
+        max-width: 400px;
+        margin: 10px ;
+        position: relative;
+    }
+</style>
 
 </head>
 <body>
@@ -33,23 +62,23 @@
 </div>
 <form method="POST" th:action="@{/shoppingCartConfirmation}">
     <!-- Редагувати корзину -->
-    <a class="navi-item" th:href="@{/shoppingCart}">
+    <a class="btn2 btn-primary btn-sm d-block w-100 mb-3" style="color: red" th:href="@{/shoppingCart}">
         Редагувати кошик
     </a>
     <!-- Редагувати інформацію про замовника -->
-    <a class="navi-item" th:href="@{/shoppingCartCustomer}">
+    <a class="btn2 btn-primary btn-sm d-block w-100 mb-3" style="color: greenyellow" th:href="@{/shoppingCartCustomer}">
         Редагувати інформацію про замовника
     </a>
     <!-- Зберегти відправити -->
-    <input type="submit" value="Відправити" class="button-send-sc" />
+    <input type="submit" value="Відправити" class="btn2 btn-primary btn-sm d-block w-100 mb-3" style="color: cyan" />
 </form>
 <div class="container">
     <div class="product-preview-container" th:each="cartLineInfo : ${myCart.cartLines}">
         <ul>
-            <li>
-                <img class="product-image"
+
+                <img class="product-image shadow-lg"
                      th:src="@{|/productImage?code=${cartLineInfo.productInfo.code}|}" />
-            </li>
+
             <li>
                 Код товару: <span th:utext="${cartLineInfo.productInfo.code}"></span>
                 <input

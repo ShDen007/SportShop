@@ -7,14 +7,18 @@
           rel="stylesheet"
           integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
           crossorigin="anonymous">
-
+    <style>
+        h5{
+            margin-left: 45px;
+        }
+    </style>
 </head>
 <body>
 
 <th:block th:include="/_header"></th:block>
 <th:block th:include="/_menu"></th:block>
 
-<div class="page-title">Продукт</div>
+<div class="page-title"><h5>Продукт</h5></div>
 <div th:if="${errorMessage!= null}" class="error-message" th:utext="${errorMessage}">
 </div>
 
@@ -86,8 +90,10 @@
         <tr>
             <td>&nbsp;</td>
             <td>
-                <input class="btn btn-primary btn-sm d-inline-block w-50 mb-2" type="submit" value="Підтвердити" />
-                <input class="btn btn-primary btn-sm d-inline-block w-50 mb-2" type="reset" value="Скидання" />
+                <input class="btn btn-primary btn-sm d-inline-block w-50 mb-2" style="color: greenyellow"
+                       type="submit" value="Підтвердити" />
+                <input class="btn btn-primary btn-sm d-inline-block w-50 mb-2" style="color: red"
+                       type="reset" value="Скидання" />
             </td>
         </tr>
     </table>

@@ -1,0 +1,17 @@
+body{
+    background: url(static/img/Bg-image.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.main{
+    background: url(static/img/sport-center1.jpg) no-repeat center center ;
+    -webkit-background-size: cover ;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 600px;
+    border-radius: 2px;
+    border: 1px solid rgba(210, 200, 200, 0.46);
+}

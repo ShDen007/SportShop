@@ -6,12 +6,25 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
     <title>Заповнення інформаціЇ про замовника</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/lux/bootstrap.min.css">
     <link rel="stylesheet" href="/static/css/main.css">
+
+    <style>
+
+        .btn2{
+            font-size: 35px;
+            width: 250px;
+            text-align: left;
+            padding-left: 25px;
+            max-width: 400px;
+            margin: 10px ;
+            position: relative;
+        }
+    </style>
 </head>
 <body>
 <th:block th:include="/_header"></th:block>
 <th:block th:include="/_menu"></th:block>
 
-<div class="page-title">Введіть інформацію про замовника</div>
+<div class="page-title"><h6>Введіть інформацію про замовника</h6></div>
 
 <form method="POST" th:object = "${customerForm}" th:action="@{/shoppingCartCustomer}">
 
@@ -50,8 +63,11 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
         </tr>
         <tr>
             <td>&nbsp;</td>
-            <td><input type="submit" value="Підтвердити" /> <input type="reset"
-                                                              value="Скинути" /></td>
+            <td>
+                <input class="btn2 btn-primary btn-sm d-block w-100 mb-3" style="color: greenyellow" type="submit"
+                        value="Підтвердити" />
+                <input class="btn2 btn-primary btn-sm d-block w-100 mb-3" style="color: greenyellow" type="reset"
+                         value="Скинути" /></td>
         </tr>
     </table>
 

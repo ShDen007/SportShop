@@ -4,25 +4,64 @@
     <meta charset="UTF-8">
     <title>Корзина</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/lux/bootstrap.min.css">
-    <link rel="stylesheet" href="/static/css/main.css">
+    <style>
+
+        h2{
+            text-align: center;
+        }
+        h5{
+            margin-left: 45px;
+        }
+        .product-preview-container{
+            position: relative;
+            width: 350px;
+            max-width: 400px;
+            margin: 10px ;
+            text-align:left;
+            position: relative;
+            border-radius: 15px;
+        }
+        .btn2{
+            font-size: 22px;
+            width: 250px;
+            text-align: left;
+            padding-left: 35px;
+            max-width: 400px;
+            margin: 10px ;
+            position: relative;
+        }
+        .product-image{
+            width: 350px;
+            height: 300px;
+            max-width: 400px;
+            position: static;
+            left: 0px;
+            top: 0px;
+            margin-left: -20px;
+            margin-top: 10px;
+        }
+
+    </style>
 </head>
+
 <body>
 <th:block th:include="/_header"></th:block>
 <th:block th:include="/_menu"></th:block>
 
+
 <th:block th:if="${cartForm == null || cartForm.cartLines == null || cartForm.cartLines.isEmpty()}">
     <h2>У кошику немає товарів</h2>
-    <a th:href="@{/productList}">Перегляд списку продуктів</a>
+    <a th:href="@{/productList}"><h5>Перегляд списку продуктів</h5></a>
 </th:block>
 
 
 <th:block th:if="${cartForm != null && cartForm.cartLines != null && !cartForm.cartLines.empty}">
     <form method="POST" th:object="${cartForm}" th:action="@{/shoppingCart}">
 
-        <div class="product-preview-container"
+        <div class="product-preview-container shadow-lg"
              th:each="cartLineInfo, varStatus : ${cartForm.cartLines}">
-            <ul style="list-style-type: none">
-                <li><img class="product-image"
+            <ul>
+                <img class="product-image shadow-lg"
                          th:src="@{|/productImage?code=${cartLineInfo.productInfo.code}|}" />
                 </li>
                 <li>Код: <span th:utext="${cartLineInfo.productInfo.code}"></span>
@@ -46,21 +85,24 @@
                           th:utext="${#numbers.formatDecimal(cartLineInfo.amount,3,2,'COMMA')}">
                         </span>
                 </li>
-                <li>
-                    <a th:href="@{|/shoppingCartRemoveProduct?code=${cartLineInfo.productInfo.code}|}">
+            </ul>
+                    <a class="btn2 btn-primary btn-sm d-block w-100 mb-3" style="color:red;"
+                       th:href="@{|/shoppingCartRemoveProduct?code=${cartLineInfo.productInfo.code}|}">
                         Видалити
                     </a>
-                </li>
-            </ul>
+            <input class="btn2 btn-primary btn-sm d-block w-100 mb-3"
+                   style="color: cyan"
+                   type="submit" value="Додати в корзину" />
         </div>
 
-        <div style="clear: both"></div>
-        <input class="button-update-sc" type="submit" value="Додати в корзину" />
-        <a class="navi-item"
-           th:href="@{/shoppingCartCustomer}">Введіть свої дані</a>
-        <a class="navi-item"
-           th:href="@{/productList}">Продовжити покупки</a>
     </form>
+
+    <a class="btn2 btn-primary btn-sm d-block w-100 mb-3"
+       style="color: cyan"
+       th:href="@{/shoppingCartCustomer}">Введіть свої дані</a>
+    <a class="btn2 btn-primary btn-sm d-block w-100 mb-3"
+       style="color: cyan"
+       th:href="@{/productList}">Продовжити покупки</a>
 </th:block>
 
 <th:block th:include="/_footer"></th:block>

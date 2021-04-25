@@ -80,7 +80,7 @@ public class AdminController {
             page = Integer.parseInt(pageStr);
         } catch (Exception e) {
         }
-        final int MAX_RESULT = 5;
+        final int MAX_RESULT = 6;
         final int MAX_NAVIGATION_PAGE = 10;
 
         PaginationResult<OrderInfo> paginationResult //
